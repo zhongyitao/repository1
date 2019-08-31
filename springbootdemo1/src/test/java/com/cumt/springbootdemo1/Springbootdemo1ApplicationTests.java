@@ -27,6 +27,7 @@ public class Springbootdemo1ApplicationTests {
     public void contextLoads() {
         List<User> userList = userDao.findAll();
         System.out.println(userList);
+        System.out.println("jasdkflksdajkfals");
     }
 
 
