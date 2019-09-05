@@ -1,0 +1,6 @@
+com\cumt\enterprise\dao\MemberDao.class
+com\cumt\enterprise\dao\RoleDao.class
+com\cumt\enterprise\dao\OrdersDao.class
+com\cumt\enterprise\dao\TravellerDao.class
+com\cumt\enterprise\dao\ProductDao.class
+com\cumt\enterprise\dao\UserDao.class

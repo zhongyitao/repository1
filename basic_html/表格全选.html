@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格全选</title>
+</head>
+
+
+<style>
+
+    div{
+        text-align: center;
+        margin: 50px;
+    }
+
+    table{
+        border: black solid 1px;
+        margin: auto;
+        width: 500px;
+    }
+
+    td,th{
+        border: black solid 1px;
+    }
+
+    .over{
+        background-color: pink;
+    }
+    .out{
+        background-color: white;
+    }
+</style>
+<body>
+
+<table id="table">
+    <tr>
+        <td><input id="first_check" type="checkbox" ></td>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>操作</th>
+    </tr>
+
+    <tr>
+        <td><input class="check" type="checkbox" ></td>
+        <td>1</td>
+        <td>小龙女</td>
+        <td>女</td>
+        <td><a class="delete" href="javaScript:void(0)" onclick="deleteFun(this)">删除</a></td>
+    </tr>
+    <tr>
+        <td><input class="check" type="checkbox" ></td>
+        <td>2</td>
+        <td>杨过</td>
+        <td>男</td>
+        <td><a class="delete" href="javaScript:void(0)" onclick="deleteFun(this)">删除</a></td>
+    </tr>
+    <tr>
+        <td><input class="check" type="checkbox" ></td>
+        <td>3</td>
+        <td>郭襄</td>
+        <td>女</td>
+        <td><a class="delete" href="javaScript:void(0)" onclick="deleteFun(this)">删除</a></td>
+    </tr>
+
+
+
+
+</table>
+<div>
+    <input id="selectAll" type="button" value="全选">
+    <input id="unSelectAll" type="button" value="全不选">
+    <input id="selectRev" type="button" value="反选">
+</div>
+
+
+<script>
+    var checks = document.getElementsByClassName("check");
+    document.getElementById("first_check").onclick = function () {
+
+
+        for (var i = 0; i < checks.length; i++) {
+            var firstcheck = document.getElementById("first_check");
+
+            checks[i].checked = firstcheck.checked;
+        }
+    }
+    document.getElementById("selectAll").onclick = function () {
+        for (var i = 0; i < checks.length; i++)
+        {
+            checks[i].checked = true;
+        }
+
+    }
+
+    document.getElementById("unSelectAll").onclick = function () {
+        for (var i = 0; i < checks.length; i++)
+        {
+            checks[i].checked = false;
+        }
+
+    }
+
+    document.getElementById("selectRev").onclick = function () {
+        for (var i = 0; i < checks.length; i++)
+        {
+            checks[i].checked = !checks[i].checked;
+        }
+
+    }
+
+    var trs = document.getElementsByTagName("tr");
+    for(var i = 0; i < trs.length; i++)
+    {
+        trs[i].onmouseover = function () {
+            this.className = "over";
+        }
+
+        trs[i].onmouseout = function () {
+            this.className = "out";
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

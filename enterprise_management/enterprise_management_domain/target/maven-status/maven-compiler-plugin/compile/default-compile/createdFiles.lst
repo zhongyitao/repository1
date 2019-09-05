@@ -1,0 +1,7 @@
+com\cumt\enterprise\domain\Product.class
+com\cumt\enterprise\domain\UserInfo.class
+com\cumt\enterprise\domain\Permission.class
+com\cumt\enterprise\domain\Traveller.class
+com\cumt\enterprise\domain\Member.class
+com\cumt\enterprise\domain\Orders.class
+com\cumt\enterprise\domain\Role.class

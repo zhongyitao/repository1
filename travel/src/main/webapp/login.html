@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>登录</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/include.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="login_layout">
+    <div class="title">
+        <img src="images/login_logo.png">
+        <span>欢迎登录黑马旅游账户</span>
+    </div>
+    <div id="error_msg" class="alert alert-danger">
+
+    </div>
+
+    <div>
+        <div class="form" id="login_div">
+            <form id="login_form" action="#" method="post">
+                <div id="login_user" class="form-group">
+                    <input type="text" id="username" name="username" class="form-control" placeholder="请输入用户名">
+                </div>
+                <div id="login_password" class="form-group">
+                    <input type="password" id="password" name="password" class="form-control" placeholder="请输入密码">
+                </div>
+                <div id="login_code" class="form-group">
+                    <input id="input_code" type="text" name="checkcode" class="form-control" placeholder="验证码">
+                    <img id="code" src="/travel/authImageServlet">
+                </div>
+                <div class="form-group" id="login">
+                    <input id="auto_login" type="checkbox"> 自动登录
+                    <button id="btn_login" type="button" class="btn btn-primary">登录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="footer_msg">
+        <P>没有账号？&nbsp;&nbsp;<a href="register.html">立即注册</a></P>
+    </div>
+</div>
+
+<script>
+    //点击验证码图片换一张
+    $("#code").click(function () {
+
+        var date = new Date().getTime();
+        //this.setAttribute("src","/travel/authImageServlet");
+        $(this).prop("src","/travel/authImageServlet?lastTime=" + date);
+    });
+
+    function checkUsername() {
+        //获取用户名的值
+        var username = $("#username").val();
+        //创建正则表达式
+        var reg_username = /^\w{8,20}$/;
+        //判断是否符合
+        var flag = reg_username.test(username);
+        if (!flag) {
+            $("#username").css("border", "1px solid red");
+        }
+        return flag;
+    }
+
+    /**
+     * 校验密码
+     */
+    function checkPassword() {
+        //获取用户名的值
+        var password = $("#password").val();
+        //创建正则表达式
+        var reg_password = /^\w{6,20}$/;
+        //判断是否符合
+        var flag = reg_password.test(password);
+        if (!flag) {
+            $("#password").css("border", "1px solid red");
+        }
+        return flag;
+    }
+
+    $("#btn_login").click(function () {
+        var a = checkUsername();
+        var b = checkPassword();
+        if (a&&b)
+        {
+            $.post("user/login",$("#login_form").serialize(),function (data) {
+                if (data.flag)
+                {
+                    //登录成功
+                    window.location = "index.html";
+                }
+                else
+                {
+                    //登录失败
+                    $("#error_msg").html(data.errorMessage);
+                }
+
+
+                
+            });
+        }
+
+    });
+
+
+</script>
+
+</body>
+</html>

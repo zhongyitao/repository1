@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动跳转首页</title>
+
+    <style>
+        span{
+            color: red;
+        }
+        p{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <p id="p_id">
+        <span>5</span>秒后跳转到首页...
+    </p>
+
+    <script>
+        var pElement = document.getElementById("p_id");
+        var spanElement = pElement.firstElementChild;
+        function fun(){
+            var count = spanElement.innerHTML;
+            count--;
+            spanElement.innerHTML = count;
+            if(!count){
+                window.location = "http://localhost:63342/Demo/basic_html/basic_html/轮播图.html"
+            }
+
+
+        }
+
+        window.setInterval(fun,1000);
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+com\cumt\enterprise\service\impl\OrdersServiceImpl.class
+com\cumt\enterprise\service\impl\ProductServiceImpl.class
+com\cumt\enterprise\service\UserService.class
+com\cumt\enterprise\service\impl\UserServiceImpl.class
+com\cumt\enterprise\service\OrdersService.class
+com\cumt\enterprise\service\ProductService.class

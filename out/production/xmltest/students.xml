@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE students SYSTEM "./dtd/students.dtd"> -->
+
+
+
+<students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 		  xmlns="http://www.itcast.cn/xml" 
+ 		  xsi:schemaLocation="http://www.itcast.cn/xml students.xsd">
+	
+	<student number="cumt_0001">
+		<name>张三</name>
+		<age>37</age>
+		<sex>male</sex>
+	</student>
+	
+	<student number="cumt_0002">
+		<name>tom</name>
+		<age>34</age>
+		<sex>female</sex>
+	
+	</student>
+</students>
